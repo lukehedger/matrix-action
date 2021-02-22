@@ -1,0 +1,25 @@
+name: Matrix Example
+
+on:
+  push:
+    branches:
+    - master
+
+jobs:
+  matrix-node:
+    runs-on: ubuntu-18.04
+    strategy:
+      matrix:
+        node: [10, 12, 14]
+    steps:
+    - uses: actions/setup-node@v2
+      run: node --version
+      with:
+        node-version: ${{ matrix.node }}
+  matrix-echo:
+    runs-on: ubuntu-18.04
+    strategy:
+      matrix:
+        echo: ["hello", "world"]
+    steps:
+    - run: echo ${{ matrix.echo }}
