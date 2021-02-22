@@ -25,3 +25,16 @@ jobs:
         echo: ["hello", "world"]
     steps:
     - run: echo ${{ matrix.echo }}
+
+  matrix-cypress:
+    runs-on: ubuntu-18.04
+    container: cypress/browsers:node14.15.0-chrome86-ff82
+    strategy:
+      matrix:
+        echo: ["cypress/component/*", "cypress/integration/*"]
+
+    steps:
+    - uses: cypress-io/github-action@v2
+      with:
+        working-directory: app
+        spec: ${{ matrix.spec }}
