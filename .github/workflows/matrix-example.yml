@@ -13,9 +13,11 @@ jobs:
         node: [10, 12, 14]
     steps:
     - uses: actions/setup-node@v2
-      run: node --version
       with:
         node-version: ${{ matrix.node }}
+
+    - run: node --version
+
   matrix-echo:
     runs-on: ubuntu-18.04
     strategy:
