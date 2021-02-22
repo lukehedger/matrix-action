@@ -36,5 +36,6 @@ jobs:
     steps:
     - uses: cypress-io/github-action@v2
       with:
-        working-directory: app
+        install-command: npm i
         spec: ${{ matrix.spec }}
+        working-directory: app
