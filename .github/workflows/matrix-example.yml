@@ -31,7 +31,7 @@ jobs:
     container: cypress/browsers:node14.15.0-chrome86-ff82
     strategy:
       matrix:
-        echo: ["cypress/component/*", "cypress/integration/*"]
+        echo: ["cypress/integration/one.spec.js", "cypress/integration/two.spec.js"]
 
     steps:
     - uses: actions/checkout@v2
